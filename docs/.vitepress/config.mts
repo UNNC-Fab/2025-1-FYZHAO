@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/2025-1-FYZHAO/",
   title: "FAB LAB",
   description: "A VitePress Site",
   themeConfig: {
