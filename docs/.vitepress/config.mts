@@ -12,6 +12,10 @@ export default defineConfig({
       { text: 'homework', items: [
         { text: 'PM', link: '/course/pm' },
         { text: 'CAD', link: '/course/cad' }
+      ] },
+      { text: 'Final Project', items: [
+        { text: 'Final', link: '/finalproject/final' },
+        { text: 'Prepare', link: '/finalproject/prepare' }
       ] }
     ],
 
