@@ -3,23 +3,18 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "Fablab Academy"
+  text: "Welcome to Fengyi Zhao Fab Academy 2025 site!"
+  tagline: This is my documentation for the Fab Academy.
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Start!
+      link: /week1/projectmanage/
     - theme: alt
-      text: /research/r.md
-      link: /api-examples
+      text: View on GitHub
+      link: https://github.com/UNNC-Fab/2025-1-FYZHAO
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Copyright 2025 Fengyi Zhao - Creative Commons Attribution Non Commercial
+    details: This webpage is powered by VitePress ( https://vitepress.vuejs.org/ ).
 ---
-

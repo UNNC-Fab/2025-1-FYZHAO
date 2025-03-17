@@ -9,9 +9,9 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'homework', items: [
-        { text: 'PM', link: '/course/pm' },
-        { text: 'CAD', link: '/course/cad' }
+      { text: 'Homework', items: [
+        { text: 'Week 1', link: '/week1/projectmanage' },
+        { text: 'Week 2', link: '/week2/arduino' }
       ] },
       { text: 'Final Project', items: [
         { text: 'Final', link: '/finalproject/final' },
@@ -21,10 +21,17 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'About',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'About me', link: '/aboutme/me' },
+          { text: 'Student agreement', link: '/aboutme/studentag' }
+        ]
+      },
+      {
+        text: 'Assignments',
+        items: [
+          { text: 'Week 1.Project Manage', link: '/week1/projectmanage' },
+          { text: 'Week 2.Arduino application', link: '/week2/arduino' }
         ]
       }
     ],
