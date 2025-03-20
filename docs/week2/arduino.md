@@ -7,6 +7,9 @@ data from（https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/）
 Seeed Studio XIAO ESP32C3 is an IoT mini development board based on the Espressif ESP32-C3 WiFi/Bluetooth dual-mode chip, featuring a 32-bit RISC-V CPU that delivers powerful computing performance with its efficient architecture.
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318061833614.png)
 
+### Pinout diagram
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318122119255.png)
 
 | Item | Seeed Studio XIAO ESP32C3 | Seeeduino XIAO | Seeed XIAO RP2040 | Seeed XIAO nRF52840 | Seeed XIAO nRF52840 Sense |
 |------|---------------------------|----------------|-------------------|--------------------|-----------------------|
@@ -84,119 +87,133 @@ long getDistance() {
   return duration * 0.34029 /2;
 }
 ```
+Below is the circuit connection shown with the serial port monitor.
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/e0525eeaff2d940f5d6f4f34c76fb2d.jpg)
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318122948456.png)
+
+The light bulb is on when the distance exceeds 200cm.
+<iframe width="683" height="384" src="https://www.youtube.com/embed/u6Bf9z2jhuw" title="Application of Arduino HC-SRO4 sensor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## 5.Homwork
-This code uses an IR remote to control a sequence of LEDs and a buzzer. It initializes an IR receiver to detect signals from a remote, maps specific remote button values to corresponding tones, and plays these tones on the buzzer. Additionally, it flashes a series of LEDs in sequence and reverse order continuously. The system includes debouncing to prevent multiple triggers from a single button press and ensures smooth operation of the LED and buzzer responses.
+This is an arduino project that displays temperature and humidity in real time.
+This job uses DHT11, LCD ILI9341, XIAO esp32c3, breadboard and Dupont wire.
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/3cb67516ccb7ecfc6b37cf69d740f9b.jpg)
 ```c++
+#include "SPI.h"
+#include "Adafruit_GFX.h"
+#include "Adafruit_ILI9341.h"
+#include "DHT.h"
 
-#include <IRremote.h>
-#include <toneAC.h>
+// LCD pin definitions
+#define TFT_CLK D0
+#define TFT_RST D1
+#define TFT_MISO MISO
+#define TFT_MOSI MOSI
+#define TFT_DC D2
+#define TFT_CS D3
 
-const int IR_RECEIVER_PIN = 8;
-const int LED_PINS[] = {2, 3, 4, 5, 6, 7};
-const int BUZZER_PIN = 9;
+// DHT sensor definitions
+#define DHTPIN D7     // DHT sensor connected to pin D7
+#define DHTTYPE DHT11 // Using DHT11 sensor
 
-IRrecv irrecv(IR_RECEIVER_PIN);
-decode_results results;
+// LCD color definitions
+#define ILI9341_BLACK       0x0000
+#define ILI9341_WHITE       0xFFFF
+#define ILI9341_GREEN       0x07E0
+#define ILI9341_RED         0xF800
+#define ILI9341_BLUE        0x001F
+#define ILI9341_YELLOW      0xFFE0
 
-int tones[] = {262, 294, 330, 349, 392, 440, 494, 523, 587, 659, 698, 784};
-int currentToneIndex = 0;
-
-unsigned long lastCommandTime = 0;
-unsigned long debounceDelay = 500;  // Set an appropriate debounce delay in milliseconds
+// Initialize objects
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);
+DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
   Serial.begin(9600);
-  irrecv.enableIRIn();
-
-  for (int i = 0; i < sizeof(LED_PINS) / sizeof(LED_PINS[0]); i++) {
-    pinMode(LED_PINS[i], OUTPUT);
-  }
-
-  flashLEDs(2);
+  Serial.println("Temperature and Humidity Display");
+  
+  // Initialize LCD
+  tft.begin();
+  tft.setRotation(1); // Optional: adjust screen orientation (0-3)
+  
+  // Initialize DHT sensor
+  dht.begin();
+  
+  // Display initial screen
+  tft.fillScreen(ILI9341_BLACK);
+  tft.setTextColor(ILI9341_WHITE);
+  tft.setTextSize(2);
+  tft.setCursor(20, 100);
+  tft.println("Initializing...");
+  delay(2000);
 }
 
 void loop() {
-  if (irrecv.decode(&results)) {
-    // Check for debouncing
-    if (millis() - lastCommandTime > debounceDelay) {
-      Serial.print("Hex Value: ");
-      Serial.println(results.value, HEX);
-
-      playTone(results.value);
-
-      lastCommandTime = millis();  // Update the last command time
-    }
-
-    irrecv.resume();
+  // Read sensor data
+  float humidity = dht.readHumidity();
+  float tempC = dht.readTemperature();      // Celsius
+  float tempF = dht.readTemperature(true);  // Fahrenheit
+  
+  // Check if data is valid
+  if (isnan(humidity) || isnan(tempC) || isnan(tempF)) {
+    displayError();
+    delay(2000);
+    return;
   }
-
-  // Flash LEDs in sequence and then in reverse
-  flashLEDsSequence();
-  flashLEDsReverse();
+  
+  // Display data
+  displayData(humidity, tempC, tempF);
+  delay(2000);  // Update every 2 seconds
 }
 
-void playTone(unsigned long value) {
-  // Map the hex values to corresponding tones
-  int index = -1;
-  switch (value) {
-    case 0xFFA25D: index = 0; break; // CH-
-    case 0xFF629D: index = 1; break; // CH
-    case 0xFFE21D: index = 2; break; // CH+
-    case 0xFF22DD: index = 3; break; // <<
-    case 0xFF02FD: index = 4; break; // >>
-    case 0xFFC23D: index = 5; break; // >||
-    case 0xFFE01F: index = 6; break; // -
-    case 0xFFA857: index = 7; break; // +
-    case 0xFF906F: index = 8; break; // EQ
-    case 0xFF9867: index = 9; break; // 100+
-    case 0xFFB04F: index = 10; break; // 200+
-    case 0xFF6897: index = 11; break; // 0
-    case 0xFF30CF: index = 12; break; // 1
-    case 0xFF18E7: index = 13; break; // 2
-    case 0xFF7A85: index = 14; break; // 3
-    case 0xFF10EF: index = 15; break; // 4
-    case 0xFF38C7: index = 16; break; // 5
-    case 0xFF5AA5: index = 17; break; // 6
-    case 0xFF42BD: index = 18; break; // 7
-    case 0xFF4AB5: index = 19; break; // 8
-    case 0xFF52AD: index = 20; break; // 9
-  }
-
-  // Play the corresponding tone
-  if (index != -1) {
-    currentToneIndex = index; // Update the current tone index
-    toneAC(BUZZER_PIN, tones[index], 500);
-    delay(500);
-    noToneAC(); // Stop the tone before playing the next one
-    delay(50); // Small delay before starting the next tone
-  }
+void displayData(float humidity, float tempC, float tempF) {
+  // Clear screen
+  tft.fillScreen(ILI9341_BLACK);
+  
+  // Set title
+  tft.setTextColor(ILI9341_YELLOW);
+  tft.setTextSize(3);
+  tft.setCursor(20, 20);
+  tft.println("Weather Station");
+  
+  // Display humidity
+  tft.setTextColor(ILI9341_BLUE);
+  tft.setTextSize(2);
+  tft.setCursor(20, 70);
+  tft.print("Humidity: ");
+  tft.print(humidity);
+  tft.println(" %");
+  
+  // Display Celsius temperature
+  tft.setTextColor(ILI9341_RED);
+  tft.setCursor(20, 100);
+  tft.print("Temp: ");
+  tft.print(tempC);
+  tft.println(" *C");
+  
+  // Display Fahrenheit temperature
+  tft.setTextColor(ILI9341_GREEN);
+  tft.setCursor(20, 130);
+  tft.print("Temp: ");
+  tft.print(tempF);
+  tft.println(" *F");
 }
 
-void flashLEDs(int times) {
-  for (int i = 0; i < times; i++) {
-    for (int j = 0; j < sizeof(LED_PINS) / sizeof(LED_PINS[0]); j++) {
-      digitalWrite(LED_PINS[j], HIGH);
-      delay(100);
-      digitalWrite(LED_PINS[j], LOW);
-    }
-    delay(500);
-  }
-}
-
-void flashLEDsSequence() {
-  for (int i = 0; i < sizeof(LED_PINS) / sizeof(LED_PINS[0]); i++) {
-    digitalWrite(LED_PINS[i], HIGH);
-    delay(100);
-    digitalWrite(LED_PINS[i], LOW);
-  }
-}
-
-void flashLEDsReverse() {
-  for (int i = sizeof(LED_PINS) / sizeof(LED_PINS[0]) - 1; i >= 0; i--) {
-    digitalWrite(LED_PINS[i], HIGH);
-    delay(100);
-    digitalWrite(LED_PINS[i], LOW);
-  }
+void displayError() {
+  // Display error message
+  tft.fillScreen(ILI9341_BLACK);
+  tft.setTextColor(ILI9341_RED);
+  tft.setTextSize(2);
+  tft.setCursor(20, 100);
+  tft.println("Sensor Error!");
+  tft.setCursor(20, 130);
+  tft.println("Check Connection");
 }
 ```
+Due to the wrong connection of the positive and negative electrodes of the temperature and humidity sensor DHT11, the sensor is broken!
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/817e618675f4e34d528ca36eec89b07.jpg)
+
+Successful test after DHT11 replacement!
+<iframe width="356" height="634" src="https://www.youtube.com/embed/rnXKh7cPbgk" title="LCD displays temperature and humidity in real time" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
