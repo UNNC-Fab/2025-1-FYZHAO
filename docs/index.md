@@ -16,5 +16,5 @@ hero:
 
 features:
   - title: Copyright 2025 Fengyi Zhao - Creative Commons Attribution Non Commercial
-    details: This webpage is powered by VitePress ( https://vitepress.vuejs.org/ ).
+    details: This webpage is powered by <a href="https://vitepress.vuejs.org/">VitePress</a>.
 ---

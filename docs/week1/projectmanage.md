@@ -2,42 +2,116 @@
 This week, I focused on completing three key tasks: configuring my PC environment, developing a website, and outlining my final project plan.
 
 ## 1.Prepare
-To create our webpage, we will utilize the following tools:
+To create our webpage, we will utilize the following tools(Click the tool name to download and install):
 
-• Git: Manages version control in GitLab. 
+• [Git](https://git-scm.com/downloads): Manages version control in GitLab. 
 
-• GitHub: Serves as the hosting platform for our webpage.
+• [GitHub](https://github.com/): Serves as the hosting platform for our webpage.
 
-• GitHub Desktop: Simplifies the process of transferring code from a local environment to GitHub.
+• [GitHub Desktop](https://desktop.github.com/): Simplifies the process of transferring code from a local environment to GitHub.
 
-• Node.js: Establishes the necessary development environment.
+• [Node.js](https://nodejs.org/en/): Establishes the necessary development environment.
 
-• Trea AI: Assists in drafting and organizing documentation.
+• [Trea AI](https://www.trae.ai/): Assists in drafting and organizing documentation.
 
-• Markdown Language: Used for writing and formatting documents.
 
-• Image Upload Service: We employ Picgo to store images on cloud platforms (e.g., GitLab) and embed them into Markdown documents.
+• Image Upload Service: We employ [Picgo](https://picgo.github.io/PicGo-Doc/zh/guide/) to store images on cloud platforms (e.g., [GitLab](https://gitlab.com/users/sign_in)) and embed them into Markdown documents.
 
 ## 2. Web page setting
- • In GitHub, create a repository with public visibility. Navigate to the ​Settings tab, select ​Pages, and choose the ​**main** branch with the **/(root)** folder option. Click ​Save to generate your webpage link.
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318020456515.png)
+ In GitHub, create a repository with public visibility. Navigate to the ​Settings tab, select ​Pages, and choose the ​**main** branch with the **/(root)** folder option. Click ​Save to generate your webpage link.
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250320174915313.png)
 
 ## 3. Git basic operations
+**Configure Git**
+
+When configuring Git, you need to set the username and email address. Run the following commands to set them:
+
+```bash
+git config --global user.name "Vivian-Z"
+git config --global user.email "owariko@163.com"
+```
+
 The following table lists the commands for creating a repository in Git:
 
 ```bash
 git init    # Initializes a repository
 git clone   # Copies a remote repository, essentially downloading a project
+
+```
+Clone and push the github folder to the local after typing in the terminal.
+
+```bash
 git add --all
 git commit -m "Add new feature"
 git push origin main
 ```
-Clone and push the github folder to the local after typing in the terminal.
-## 4. Modify YML configuration
-Create the folder.github/workflows in the root directory and create the deploy.yml file.
+
+## 4. Deploy the VitePress site
+Follow the instraction on [ VitPress](https://vitepress.dev/zh/guide/getting-started) website. Initialize with your preferred package manager.
+
+VitePress comes with a command-line setup wizard that helps you build a basic project. After installation, start the wizard by running the following command:
+```bash
+npx vitepress init
+```
+A few simple questions will need to be answered:
+```bash
+┌  Welcome to VitePress!
+│
+◇  Where should VitePress initialize the config?
+│  ./docs
+│
+◇  Where should VitePress look for your markdown files?
+│  ./docs
+│
+◇  Site title:
+│  My Awesome Project
+│
+◇  Site description:
+│  A VitePress Site
+│
+◇  Theme:
+│  Default Theme
+│
+◇  Use TypeScript for config and theme files?
+│  Yes
+│
+◇  Add VitePress npm scripts to package.json?
+│  Yes
+│
+◇  Add a prefix for VitePress npm scripts?
+│  Yes
+│
+◇  Prefix for VitePress npm scripts:
+│  docs
+│
+└  Done! Now run pnpm run docs:dev and start writing.
+```
+You can run the following command to build the document:
+```bash
+$ npm run docs:build
+```
+After you build the document, you can use this script to start a local development server with instant hot updates. Run it with the following command:
+```bash
+$ npm run docs:dev
+```
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250320180336064.png)
+
+You can configure the server's port by passing --port as a parameter.
+```bash
+{
+  "scripts": {
+    "docs:preview": "vitepress preview docs --port 8080"
+  }
+}
+```
+When finished, hold down ctrl+c to exit Vitepress.
+
+## 5. Modify YML configuration
+Create the folder```.github/workflows``` in the root directory and create the ```deploy.yml``` file.
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318022639796.png)
 
-2.deploy.yml details：
+```Deploy.yml``` details：
 
 ```yaml
 # Example workflow for building and deploying a VitePress site to GitHub Pages
@@ -106,12 +180,12 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 ```
-Create a new.gitignore file and write it to node modules.
+Create a new```.gitignore``` file and write it to ```node modules```.
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318023119825.png)
 
-Run npm install on the terminal.
+Run ```npm install``` on the terminal.
 
-Add the following to the package.json file.
+Add the following to the ```package.json``` file.
 
 ```bash
 json
@@ -153,65 +227,3 @@ export default defineConfig({
 Upload to GitHub.
 
 Select github actions.
-
-## 5. Deploy the VitePress site
-Follow the instraction on [ VitPress](https://vitepress.dev/zh/guide/getting-started) website. Initialize with your preferred package manager.
-
-VitePress comes with a command-line setup wizard that helps you build a basic project. After installation, start the wizard by running the following command:
-```bash
-npx vitepress init
-```
-A few simple questions will need to be answered:
-```bash
-┌  Welcome to VitePress!
-│
-◇  Where should VitePress initialize the config?
-│  ./docs
-│
-◇  Where should VitePress look for your markdown files?
-│  ./docs
-│
-◇  Site title:
-│  My Awesome Project
-│
-◇  Site description:
-│  A VitePress Site
-│
-◇  Theme:
-│  Default Theme
-│
-◇  Use TypeScript for config and theme files?
-│  Yes
-│
-◇  Add VitePress npm scripts to package.json?
-│  Yes
-│
-◇  Add a prefix for VitePress npm scripts?
-│  Yes
-│
-◇  Prefix for VitePress npm scripts:
-│  docs
-│
-└  Done! Now run pnpm run docs:dev and start writing.
-```
-You can run the following command to build the document:
-```bash
-$ npm run docs:build
-```
-After you build the document, you can preview it locally by running the following command:
-```bash
-$ npm run docs:preview
-```
-You can configure the server's port by passing --port as a parameter.
-```bash
-{
-  "scripts": {
-    "docs:preview": "vitepress preview docs --port 8080"
-  }
-}
-```
-
-​Markdown Files:
-
-The docs directory contains Markdown files that serve as the content for the site. For example, index.md is the homepage, and other Markdown files can be organized into subdirectories for different sections.
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250317161615490.png)

@@ -11,7 +11,8 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Homework', items: [
         { text: 'Week 1', link: '/week1/projectmanage' },
-        { text: 'Week 2', link: '/week2/arduino' }
+        { text: 'Week 2', link: '/week2/arduino' },
+        { text: 'Week 3', link: '/week3/PCB' }
       ] },
       { text: 'Final Project', items: [
         { text: 'Final', link: '/finalproject/final' },
@@ -31,7 +32,8 @@ export default defineConfig({
         text: 'Assignments',
         items: [
           { text: 'Week 1.Project Manage', link: '/week1/projectmanage' },
-          { text: 'Week 2.Arduino application', link: '/week2/arduino' }
+          { text: 'Week 2.Arduino application', link: '/week2/arduino' },
+          { text: 'Week 3.Electronic design', link:'/week3/PCB'}
         ]
       }
     ],
