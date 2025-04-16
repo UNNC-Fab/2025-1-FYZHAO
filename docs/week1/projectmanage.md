@@ -201,7 +201,7 @@ json
 }
 ```
 
-Add base in the docs>.vitepress> config.js file: The address is as follows.
+Add base in the ```docs>.vitepress> config.js``` file: The address is as follows.
 ```bash
 import { defineConfig } from 'vitepress'
 
@@ -227,3 +227,58 @@ export default defineConfig({
 Upload to GitHub.
 
 Select github actions.
+
+Then you can get a original page.
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250407025501485.png)
+
+## 6. Page settings
+
+Create a .vitepress/config.js file in your project root.
+
+Define the nav and sidebar configuration in the theme config:
+
+```bash
+export default defineConfig({
+  themeConfig: {
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Homework', items: [
+        { text: 'Week 1', link: '/week1/projectmanage' },
+        { text: 'Week 2', link: '/week2/arduino' },
+        { text: 'Week 3', link: '/week3/PCB' }
+      ] },
+      { text: 'Final Project', items: [
+        { text: 'Final', link: '/finalproject/final' },
+        { text: 'Prepare', link: '/finalproject/finalXu' }
+      ] }
+    ],
+    sidebar: [
+      {
+        text: 'About',
+        items: [
+          { text: 'About me', link: '/aboutme/me' },
+          { text: 'Student agreement', link: '/aboutme/studentag' }
+        ]
+      },
+      {
+        text: 'Assignments',
+        items: [
+          { text: 'Week 1.Project Manage', link: '/week1/projectmanage' },
+          { text: 'Week 2.Arduino application', link: '/week2/arduino' },
+          { text: 'Week 3.Electronic design', link:'/week3/PCB'}
+        ]
+      }
+    ]
+  } 
+  ```
+
+  Add icons using a convention like:
+```bash
+  base: "/2025-1-FYZHAO/",
+  title: "FAB LAB-2025-FENGYI ZHAO",
+  description: "A VitePress Site",
+  themeConfig: {
+    logo: 'https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/%E8%B5%84%E6%BA%90%201%404x.png',
+```
+Then follow the steps on the website to perform CSS styling.（ https://juejin.cn/post/7406144322834792499）
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250407031414111.png)

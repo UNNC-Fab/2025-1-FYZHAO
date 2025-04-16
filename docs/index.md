@@ -6,6 +6,11 @@ hero:
   name: "Fablab Academy"
   text: "Welcome to Fengyi Zhao Fab Academy 2025 site!"
   tagline: This is my documentation for the Fab Academy.
+  image:
+    src: https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/%E8%B5%84%E6%BA%90%205%404x.png
+    alt: Fab Lab Logo
+    style:
+      transform: scale(2) translate(-50px, -50px)
   actions:
     - theme: brand
       text: Start!
