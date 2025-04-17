@@ -61,9 +61,15 @@ Key Tools Used:
 
 ## 3.Homework
 
-Model a functional aromatherapy bottle lid in Fusion 360*, then validate the design through 3D printing.  
+Model a functional aromatherapy bottle lid in Fusion 360*, then validate the design through 3D printing. 
 
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/a8b9969c54e52185c512363f3420d0f.jpg)
+ This is a special type of scented candle lid. By combining two LIDS, it achieves three functions: heat concentration, candle extinguishing and dust prevention.
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/2ab86df2ee508d4a4f5e7711e0a4350.jpg)
+
+The female cover can gather heat and prevent the candle from burning out pits.
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417134308991.png)
 ---
 
 ### Modeling Workflow  
