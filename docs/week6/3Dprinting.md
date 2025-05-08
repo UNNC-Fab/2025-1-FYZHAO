@@ -152,23 +152,70 @@ For advanced dual-color techniques, refer to [Bambu Studio’s Manual](https://w
 ## 4.3D Scanning with Polycam  
 
 ### Overview  
-For this assignment, I used **Polycam**, a mobile 3D scanning app, to capture real-world objects and convert them into printable 3D models.  
-
-### Scanning Process  
-• **App Setup**: Downloaded Polycam (iOS/Android) and created an account.  
-• **Scanning**:  
-  • Used the **LiDAR mode** (for compatible devices) or standard photogrammetry.  
-  • Scanned a small object (e.g., coffee mug) by circling it slowly under even lighting.  
-  • Ensured 70%+ overlap between photos for high-quality reconstruction.  
-• **Post-Processing**:  
-  • Trimmed excess mesh data using Polycam’s editing tools.  
-  • Smoothed surfaces and filled holes automatically.  
+The EinStar is a compact, handheld 3D scanner developed by Shining 3D, designed to make high-quality 3D scanning accessible, affordable, and easy to use. It’s ideal for beginners, educators, artists, makers, and small businesses seeking reliable 3D data capture without the complexity of industrial-grade systems. 
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/7158b7933519a82a33504ed6eff3774.jpg)
+### Scanning Process
+Certainly! Here's an English description of the **EXStar scanning process**, which is the software used with the **EinStar 3D scanner**:
 
 
-### Final Output  
+The **EXStar software** provides an intuitive, step-by-step interface for scanning with the EinStar 3D scanner. Below is a typical scanning process using EXStar:
+
+---
+
+#### (1) Device Connection & Calibration
+
+* **Connect the EinStar** to your computer via USB 3.0.
+* Launch the **EXStar software**, which will automatically detect the device.
+* Perform a quick **calibration** if prompted to ensure optimal accuracy and alignment.
+
+---
+
+#### (2) Scan Mode Selection
+
+* Choose the appropriate **scan mode** based on your target:
+
+  * **Standard Scan** for objects and surfaces
+  * **Human Scan** for body or face scanning
+  * **Outdoor Scan** with brightness optimization
+
+---
+
+#### (3) Preview & Environment Setup
+
+* Use the **live preview window** to adjust lighting and positioning.
+* Ensure the object is stable and fully within the camera’s field of view.
+* EXStar will display real-time feedback including tracking status and data quality.
+
+---
+
+#### (4) Scanning in Real Time
+
+* Press **Start Scan** to begin capturing the 3D model.
+* **Move the scanner steadily** around the object, keeping a consistent distance (ideally 300–500 mm).
+* Real-time mesh generation allows you to monitor **surface coverage and alignment**.
+
+---
+
+#### (5) Post-Processing
+
+After scanning is complete, EXStar automatically enters the **post-processing phase**:
+
+* **Global registration**: Refines alignment across the entire scan
+* **Noise reduction**: Removes floating or misaligned points
+* **Hole filling**: Automatically patches small missing areas
+* **Texture mapping**: Applies RGB color texture to the mesh (if enabled)
+
+---
+
+#### (6) Export & Application
+
+* Export the final model in formats such as **OBJ, STL, or PLY**.
+* The file can be used directly in **3D printing, CAD software, animation, or game development**.
+
+
+#### (7)Final Output  
 Successfully scanned object, preserving key geometric features. 
  
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/1a7d14d963edfcb36749ae99361a27f.jpg)
 ---  
-*Tools Used: Polycam (Scanning), Bambu Studio (Slicing), Ender-3 (Printing)*  
-For tutorials: [Polycam’s Guide](https://poly.cam/how-to-scan)
+

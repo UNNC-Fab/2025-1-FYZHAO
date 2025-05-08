@@ -22,12 +22,15 @@ Fusion 360 is popular in industries such as automotive, aerospace, and consumer 
 ## 2.Modeling a four-bar linkage in Fusion 360
 
 ### **Sketch Creation**  
-   • **Create a New Sketch**: Select the desired plane (e.g., XY plane) to begin sketching.  
+
+   • **Create a New Sketch**: 
+   Select the desired plane (e.g., XY plane) to begin sketching. 
+   ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250507164008587.png) 
    • **Draw the Base Geometry**:  
      ◦ Use the **Line** tool to draw the four-bar linkage components: ground link, crank, coupler, and rocker. Ensure proper alignment using horizontal/vertical constraints.  
      ◦ Add **Dimensions** to define lengths (e.g., crank length, coupler length) and angles.  
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250408173652889.png)
----
+
 
 ### **Apply Constraints**  
    • **Fix the Ground Link**: Anchor the ground link using the **Fix Constraint** to prevent unintended movement.  
@@ -59,7 +62,55 @@ Key Tools Used:
 • Extrude, Fillet.  
 • Joints and Motion Analysis.  
 
-## 3.Homework
+## 3.Rhino
+
+**Rhinoceros**, commonly known as **Rhino**, is a powerful 3D modeling software widely used in industrial design, architecture, jewelry, engineering, animation, and manufacturing. Developed by **Robert McNeel & Associates**, Rhino is best known for its precise **NURBS-based modeling capabilities**.
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250507171413293.png)
+
+---
+
+###  Key Features
+
+* **NURBS Modeling Engine**: Enables accurate free-form surface modeling, ideal for complex geometries.
+* **High Compatibility**: Supports a wide range of 3D file formats (e.g., DWG, STL, OBJ, IGES, STEP), making it easy to integrate with other CAD tools.
+* **Rich Plugin Ecosystem**: Extensions like **Grasshopper**, **V-Ray**, **KeyShot**, and **PanelingTools** greatly enhance functionality.
+* **Lightweight & Efficient**: Runs smoothly on modest hardware, making it accessible for students and startups.
+
+---
+
+### Grasshopper – Visual Programming for Parametric Design
+
+One of Rhino’s most distinctive features is **Grasshopper**, a node-based visual programming tool for **parametric modeling**. Users can create complex logic-driven models without writing code by connecting visual components. Ideal for:
+
+* Parametric architectural design
+* Mathematical and algorithmic modeling
+* Data-driven design
+* Simulation and visualization workflows
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250507171528911.png)
+---
+
+### Application Areas
+
+* **Architecture**: Complex structures, façade systems, parametric urban planning
+* **Product & Industrial Design**: Furniture, electronics, vehicle prototyping
+* **Jewelry Design**: Precision surface modeling and rapid prototyping
+* **Engineering & Manufacturing**: Export-ready models for CNC or 3D printing
+
+---
+
+### Integration with Other Software
+
+Rhino works seamlessly with many other tools, including:
+
+* **AutoCAD**: Sharing 2D drawings via DWG format
+* **Revit**: BIM integration through Rhino.Inside.Revit
+* **Blender / Maya / 3ds Max**: Importing surface models for animation and rendering
+* **Unity / Unreal Engine**: Real-time visualization and interaction design
+
+
+
+
+## 4.Homework
 
 Model a functional aromatherapy bottle lid in Fusion 360*, then validate the design through 3D printing. 
 
@@ -78,7 +129,7 @@ The female cover can gather heat and prevent the candle from burning out pits.
 **Rounded Rectangle Sketch**  
   • Create a **2D Sketch** on the XY plane  
   • Use **Center Rectangle** tool (80x80mm) → **Fillet** edges (20mm radius)  
-  ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417021656028.png)
+ ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250507165941342.png)
   • `Extrude` 4mm with 1° draft angle for mold release  
 #### Creating Triangular Voronoi Patterns in Fusion 360
 
@@ -118,4 +169,12 @@ Export as a 3mf file and enter the slicing tool for 3d printing Settings.
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417042850809.png)
 
 Preview the model.
+
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417043001855.png)
+
+The tree-shaped support is difficult to remove and causes errors.
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/84798573ef41d377ec2f9ea741b50a4.jpg)
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/c553fa2b4adfd2d484824bc6d2bf30d.jpg)
+
+The following is the final model with common supports and cf materials.

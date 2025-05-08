@@ -233,10 +233,10 @@ Then you can get a original page.
 
 ## 6. Page settings
 
-Create a .vitepress/config.js file in your project root.
 
-Define the nav and sidebar configuration in the theme config:
-
+Define the nav and sidebar configuration in the ```config.mts``` file:
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250507161035761.png)
+The following are the configuration codes for the drop-down menu and the sidebar.
 ```bash
 export default defineConfig({
   themeConfig: {
@@ -274,11 +274,11 @@ export default defineConfig({
 
   Add icons using a convention like:
 ```bash
-  base: "/2025-1-FYZHAO/",
-  title: "FAB LAB-2025-FENGYI ZHAO",
-  description: "A VitePress Site",
-  themeConfig: {
-    logo: 'https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/%E8%B5%84%E6%BA%90%201%404x.png',
+themeConfig: {
+    logo: {
+      light: 'https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/zf.png',
+      dark: 'https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/zf-2.png'
+    },
 ```
-Then follow the steps on the website to perform CSS styling.（ https://juejin.cn/post/7406144322834792499）
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250407031414111.png)
+Then follow the steps on the website to perform CSS styling and add pictures.（https://juejin.cn/post/7406144322834792499）
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250507161457965.png)

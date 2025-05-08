@@ -30,6 +30,16 @@
     --vp-home-hero-image-filter: blur(40px);
   }
   
+  /* 添加 Hero 图片大小样式 */
+  .VPHero .image-container img {
+    width: 500px !important;
+    height: auto !important;
+    transform: scale(1.75) !important;
+    margin-left: -100px !important;
+    margin-top: -100px !important;
+    max-width: none !important;
+  }
+  
   /* 也可自行单独修改brand按钮 */
    :root {
     --vp-button-brand-border: #829fee;
@@ -41,4 +51,4 @@
     --vp-button-brand-hover-bg: #c386fd;
   
     --vp-button-brand-active-border: #F6CEEC;
-  } 
+  }

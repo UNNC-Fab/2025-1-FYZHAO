@@ -44,73 +44,7 @@ Once approved, log into Fusion 360 using your Autodesk ID.
 The software will automatically switch to the educational license (valid for 1-3 years)
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318132217205.png)
 
-### Designing a simple PCB in Fusion 360
 
-**Create a New Electronics Design**
-
-Open Fusion 360 and navigate to ​File > New Electronics Design.
-
-Name your project (e.g., "Simple_PCB") and select ​Schematic to start designing the circuit.
-
-**Add Components from the Library**
-Open the ​Library Manager (Tools > Library Manager) and ensure the following libraries are loaded:
-
-​Adafruit (for Xiao ESP32-C3 and LEDs).
-​Generic Components (for resistors, switches, etc.).
-
-Search and place components:
-
-​Xiao ESP32-C3: Search for "Xiao ESP32-C3" in the Adafruit library.
-​Switch: Use a generic SPST switch.
-​Resistor: Select a 220Ω resistor.
-​LED: Choose an LED from the library.
-Double-click or drag components onto the schematic workspace.
-
-**Connect Components in the Schematic**
-
-Use the ​Net tool to wire components:
-
-Connect the Xiao ESP32-C3’s GPIO pin to the resistor.
-Link the resistor to the LED’s anode.
-Connect the LED’s cathode to ground (GND).
-Wire the switch between power (VCC) and the Xiao’s enable pin.
-
-Assign ​Power Symbols: Add a ​**+V** (5V) and ​GND symbol to complete the circuit.
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318185821428.png)
-
-**​Define PCB Shape and Switch to PCB Layout**
-
-Click ​Switch to PCB Document from the schematic workspace.
-
-Adjust the PCB outline:
-
-Use the ​Outline tool to draw a custom shape or resize the default rectangle.
-Ensure the board size accommodates all components.
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318190015578.png)
-
-**Place Components on the PCB**
-
-Drag components onto the PCB:
-Position the Xiao ESP32-C3 centrally.
-Place the switch near the board edge for accessibility.
-Arrange the resistor and LED close to the Xiao’s GPIO pin.
-Use ​Rotation and ​Mirror tools to optimize placement.
-
-**Generate 3D PCB and Validate**
-
-Click ​Push to 3D PCB to visualize the board in 3D.
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318190124112.png)
-
-Check for component collisions or alignment issues.
-Run ​Design Rule Check (DRC) to identify errors like short circuits or insufficient spacing.
-
-**Export Manufacturing Files**
-
-Navigate to ​File > Export and select:
-
-​Gerber Files for PCB fabrication.
-
-​Bill of Materials (BOM) for component sourcing
 ## 2.JiaLiChuang EDA
 
 Here’s a guide for designing the PCB shown using ​JiaLiChuang EDA (JLCEDA).
@@ -219,3 +153,12 @@ Pay via credit card, PayPal, or Alipay.
 Click ​​"Save to Cart"​ and confirm payment.
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250318185508437.png)
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/7f253f1b3fd17a9e592f30bc6c7f568.jpg)
+## 4.Homework
+This project involved designing a custom PCB using ​​JLCPCB​​ to optimize the circuitry for an ​​IoT environmental monitoring system​​. The board integrates the following key components:
+
+​​XIAO ESP32-C3​​ (Wi-Fi/BLE-enabled microcontroller)
+​​ILI9341 TFT LCD​​ (240×320 resolution)
+​​DHT11​​ (Temperature & Humidity Sensor)
+The PCB replaces a breadboard prototype, improving reliability and reducing wiring complexity.
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250508042836588.png)
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250508050252445.png)

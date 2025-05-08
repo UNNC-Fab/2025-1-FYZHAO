@@ -298,9 +298,12 @@ Coordinated layout prevents screen tearing
 ​​Error Handling​​:
 *Sensor Error!  
  Check Connection*
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/817e618675f4e34d528ca36eec89b07.jpg)
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250507163108879.png)
+
 ​​Performance Metrics​​:
 Sampling Rate: 0.5Hz (conserves power)
 SPI Throughput: 15MHz (smooth rendering)
 Accuracy: ±2°C (temp), ±5% (humidity)
-<iframe width="356" height="634" src="https://www.youtube.com/embed/rnXKh7cPbgk" title="LCD displays temperature and humidity in real time" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="914" height="514" src="https://www.youtube.com/embed/ZqvxqITqg-4" title="LCD displays temperature and humidity in real time" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

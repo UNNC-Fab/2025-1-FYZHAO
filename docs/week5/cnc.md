@@ -9,7 +9,7 @@ CNC (Computer Numerical Control) is a manufacturing process where pre-programmed
 1. Design Phase: A 3D model (e.g., created in Fusion 360) is converted into G-code, a language that instructs the CNC machine.  
 2. Setup: The material is secured, and the correct tools (end mills, drills) are installed.  
 3. Automated Machining: The CNC machine follows the G-code to carve the design autonomously.  
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250416224409454.png)
+
 **Advantages of CNC**  
 • Precision: Achieves tight tolerances (up to ±0.001 inches).  
 • Repeatability: Perfect for mass production of identical parts.  

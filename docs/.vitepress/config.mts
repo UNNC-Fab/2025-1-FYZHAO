@@ -9,7 +9,10 @@ export default defineConfig({
     ['link', { rel: 'icon', href: 'https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/zf.png', type: 'image/png' }]
   ],
   themeConfig: {
-    logo: 'https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/zf.png',
+    logo: {
+      light: 'https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/zf.png',
+      dark: 'https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/zf-2.png'
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
@@ -19,8 +22,8 @@ export default defineConfig({
         { text: 'Week 3', link: '/week3/PCB'},
         { text: 'Week 4', link: '/week4/Fusion' },
         { text: 'Week 5', link: '/week5/cnc' },
-        { text: 'Week 6', link: '/week6/3D Printing' },
-        { text: 'Week 7', link: '/week7/IOT and Interaction' },
+        { text: 'Week 6', link: '/week6/3DPrinting' },
+        { text: 'Week 7', link: '/week7/IOTandInteraction' },
         { text: 'Week 8', link: '/week8/8' },
         { text: 'Week 9', link: '/week9/9' },
         { text: 'Week 10', link: '/week10/10' }
@@ -40,6 +43,14 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Final Project',
+        items: [
+          { text: 'Final project presentation', link: '/finalproject/final' },
+          { text: 'Prepare', link: '/finalproject/prepare' },
+
+        ]
+      },
+      {
         text: 'Assignments',
         items: [
           { text: 'Week 1.Project Manage', link: '/week1/projectmanage' },
@@ -49,8 +60,8 @@ export default defineConfig({
           { text: 'Week 5.CNC Manufacture', link: '/week5/cnc' },
           { text: 'Week 6.3D Printing', link: '/week6/3DPrinting' },
           { text: 'Week 7.IOT and Interaction', link: '/week7/IOTandInteraction' },
-          { text: 'Week 8', link: '/week8/8' },
-          { text: 'Week 9', link: '/week9/9' },
+          { text: 'Week 8 Modeling and Casting', link: '/week8/8' },
+          { text: 'Week 9 Interface and Application Programming', link: '/week9/9' },
           { text: 'Week 10', link: '/week10/10' }
         ]
       }
