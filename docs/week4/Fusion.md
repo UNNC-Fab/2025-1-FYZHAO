@@ -156,25 +156,3 @@ The female cover can gather heat and prevent the candle from burning out pits.
 
 **Engineering drawing model**
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417040018113.png)
-### 3D Printing Prep  
-Export as a 3mf file and enter the slicing tool for 3d printing Settings.
-#### Critical Parameters
-| Feature          | Value              | Note                  |  
-|------------------|--------------------|-----------------------|  
-| Layer Height     | 0.12mm            | For snap-fit accuracy |  
-| Wall Count       | 2                 | 0.8mm total thickness |  
-| Snap-fit Tolerance | +0.1mm           | Compensate for FDM shrinkage |  
-| Support          | "Tree" (15° threshold) | Minimize contact points |  
-
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417042850809.png)
-
-Preview the model.
-
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417043001855.png)
-
-The tree-shaped support is difficult to remove and causes errors.
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/84798573ef41d377ec2f9ea741b50a4.jpg)
-
-![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/c553fa2b4adfd2d484824bc6d2bf30d.jpg)
-
-The following is the final model with common supports and cf materials.

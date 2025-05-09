@@ -218,4 +218,31 @@ Successfully scanned object, preserving key geometric features.
  
 ![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/1a7d14d963edfcb36749ae99361a27f.jpg)
 ---  
+## 5. Homework
+This week's homework is to print my own 3D model designed by Fusion 360, which is a Scented candle LIDS.
+### 3D Printing Prep  
+Export as a 3mf file and enter the slicing tool for 3d printing Settings.
+#### Critical Parameters
+| Feature          | Value              | Note                  |  
+|------------------|--------------------|-----------------------|  
+| Layer Height     | 0.12mm            | For snap-fit accuracy |  
+| Wall Count       | 2                 | 0.8mm total thickness |  
+| Snap-fit Tolerance | +0.1mm           | Compensate for FDM shrinkage |  
+| Support          | "Tree" (15° threshold) | Minimize contact points |  
 
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417042850809.png)
+
+Preview the model.
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/20250417043001855.png)
+
+The tree-shaped support is difficult to remove and causes errors.
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/84798573ef41d377ec2f9ea741b50a4.jpg)
+
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/c553fa2b4adfd2d484824bc6d2bf30d.jpg)
+
+The following is the final model with common supports and cf materials. They are more suitable for a scented candle.
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/8667596cf116549accb590088fe2f66.jpg)
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/19fbc2246856174fd7167e3306c99c6.jpg)
+![](https://unncfab.oss-cn-hangzhou.aliyuncs.com/img/zhao/e0aafff5be6bcd5c4cc29044d692c44.jpg)
+<iframe width="914" height="514" src="https://www.youtube.com/embed/mylpawPwaXs" title="3D printing Scented candle LIDS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
